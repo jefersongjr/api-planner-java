@@ -16,13 +16,13 @@ public class TripController {
     private TripRepository repository;
 
     @PostMapping
-    public ResponseEntity<String> createTrip(@RequestBody TripRequestPayload payload) {
+    public ResponseEntity<TripCreateResponse> createTrip(@RequestBody TripRequestPayload payload) {
         Trip newTrip = new Trip(payload);
 
         this.repository.save(newTrip);
 
         this.participantService.registerPaticipantsToEvent(payload.emails_to_invite(), newTrip.getId());
 
-        return ResponseEntity.ok("Sucesso");
+        return ResponseEntity.ok(new TripCreateResponse(newTrip.getId()));
     }
 }
