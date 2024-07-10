@@ -1,11 +1,16 @@
 package com.cls.planner.trip;
 
-import jakarta.persistence.*;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,8 +29,19 @@ public class Trip {
     private Boolean isConfirmed;
 
     @Column(name="owner_name", nullable = false)
-    private LocalDateTime owner_name;
+    private String ownerName;
 
     @Column(name="owner_email", nullable = false)
-    private LocalDateTime ownerEmail;
+    private String ownerEmail;
+
+    public Trip(TripRequestPayload data) {
+        this.destination = data.destination();
+        this.isConfirmed = false;
+        this.ownerEmail = data.owner_email();
+        this.ownerName = data.owner_name();
+        this.startsAt = LocalDateTime.parse(data.stars_at(), DateTimeFormatter.ISO_DATE_TIME);
+        this.endsAt = LocalDateTime.parse(data.ends_at(), DateTimeFormatter.ISO_DATE_TIME);
+
+
+    }
 }
