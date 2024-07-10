@@ -1,5 +1,6 @@
 package com.cls.planner.trip;
 
+import com.cls.planner.activities.ActivityData;
 import com.cls.planner.activities.ActivityRequestPayload;
 import com.cls.planner.activities.ActivityResponse;
 import com.cls.planner.activities.ActivityService;
@@ -121,6 +122,13 @@ public class TripController {
             return ResponseEntity.ok(activityResponse);
         }
         return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/{id}/activities")
+    public ResponseEntity<List<ActivityData>> getAllActivities(@PathVariable UUID id){
+        List<ActivityData> activityDataList = this.activityService.getAllActivitiesFromId(id);
+
+        return ResponseEntity.ok(activityDataList);
     }
     }
 
