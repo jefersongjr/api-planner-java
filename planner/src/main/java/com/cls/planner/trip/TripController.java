@@ -1,10 +1,12 @@
 package com.cls.planner.trip;
 
+import com.cls.planner.activities.ActivityRequestPayload;
+import com.cls.planner.activities.ActivityResponse;
+import com.cls.planner.activities.ActivityService;
 import com.cls.planner.participant.ParticipantCreateResponse;
 import com.cls.planner.participant.ParticipantData;
 import com.cls.planner.participant.ParticipantRequestPayload;
 import com.cls.planner.participant.ParticipantService;
-import com.cls.planner.participant.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +23,9 @@ public class TripController {
 
     @Autowired
     private ParticipantService participantService;
+
+    @Autowired
+    private ActivityService activityService;
 
     @Autowired
     private TripRepository repository;
@@ -102,5 +107,20 @@ public class TripController {
 
         return ResponseEntity.ok(participantList);
         }
+
+    @PostMapping("/{id}/activities")
+    public ResponseEntity<Object> registerActivity(@PathVariable UUID id, @RequestBody ActivityRequestPayload payload) {
+
+        Optional<Trip> trip = this.repository.findById(id);
+
+        if(trip.isPresent()){
+            Trip rawTrip = trip.get();
+
+            ActivityResponse activityResponse  = this.activityService.registerActivity(payload, rawTrip);
+
+            return ResponseEntity.ok(activityResponse);
+        }
+        return ResponseEntity.notFound().build();
+    }
     }
 
