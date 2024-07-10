@@ -8,6 +8,8 @@ import java.util.UUID;
 public class ParticipantService {
 
     public void registerPaticipantsToEvent(List<String> emails, UUID tripId) {
-        // Implementação do método para registrar participantes
+    }
+
+    public void triggerConfirmationEmailToParticipants(UUID tripId) {
     }
 }
