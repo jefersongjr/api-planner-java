@@ -1,4 +1,4 @@
-package com.cls.planner.trip.participant;
+package com.cls.planner.participant;
 
 import java.util.UUID;
 

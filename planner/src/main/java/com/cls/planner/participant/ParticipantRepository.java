@@ -1,4 +1,4 @@
-package com.cls.planner.trip.participant;
+package com.cls.planner.participant;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
