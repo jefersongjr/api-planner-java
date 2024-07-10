@@ -4,7 +4,7 @@ import com.cls.planner.participant.ParticipantCreateResponse;
 import com.cls.planner.participant.ParticipantData;
 import com.cls.planner.participant.ParticipantRequestPayload;
 import com.cls.planner.participant.ParticipantService;
-import com.cls.planner.trip.participant.*;
+import com.cls.planner.participant.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
