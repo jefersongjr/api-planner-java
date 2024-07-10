@@ -1,9 +1,9 @@
 package com.cls.planner.trip;
 
-import com.cls.planner.activities.ActivityData;
-import com.cls.planner.activities.ActivityRequestPayload;
-import com.cls.planner.activities.ActivityResponse;
-import com.cls.planner.activities.ActivityService;
+import com.cls.planner.activity.ActivityData;
+import com.cls.planner.activity.ActivityRequestPayload;
+import com.cls.planner.activity.ActivityResponse;
+import com.cls.planner.activity.ActivityService;
 import com.cls.planner.participant.ParticipantCreateResponse;
 import com.cls.planner.participant.ParticipantData;
 import com.cls.planner.participant.ParticipantRequestPayload;

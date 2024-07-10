@@ -1,4 +1,4 @@
-package com.cls.planner.activities;
+package com.cls.planner.activity;
 
 public record ActivityRequestPayload(String title, String occurs_at) {
 }

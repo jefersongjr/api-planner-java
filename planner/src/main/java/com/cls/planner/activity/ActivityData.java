@@ -1,4 +1,4 @@
-package com.cls.planner.activities;
+package com.cls.planner.activity;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
